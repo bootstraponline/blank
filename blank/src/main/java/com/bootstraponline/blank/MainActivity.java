@@ -13,7 +13,7 @@ import static android.graphics.Bitmap.createBitmap;
 public class MainActivity extends Activity {
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState); // must call super.onCreate
         final WallpaperManager wall = WallpaperManager.getInstance(getApplicationContext());
         final Display display = getWindowManager().getDefaultDisplay();
@@ -21,7 +21,7 @@ public class MainActivity extends Activity {
         // Works on API 17. Older Androids don't have .getSize()
         final Point size = new Point();
         display.getSize(size);
-        Bitmap image = createBitmap(size.x, size.y, Bitmap.Config.RGB_565);
+        final Bitmap image = createBitmap(size.x, size.y, Bitmap.Config.RGB_565);
         image.eraseColor(Color.BLACK);
 
         try {
